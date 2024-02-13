@@ -39,7 +39,9 @@
                 <span class="text-light fw-bold">
                     Voto:
                 </span>
-                {{ propsElement.vote_average }}
+                <span v-for="index in propsElement.vote_average">
+                    &#11088;
+                </span>
             </span>
             <div class="d-flex flex-column overflow-y-auto">
                 <span class="text-light fw-bold mb-2">

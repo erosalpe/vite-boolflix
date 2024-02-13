@@ -30,6 +30,11 @@
                             store.foundFilmsArray = response.data.results
                             store.foundFilmsArray.forEach(element => {
                                 element.info = false;
+
+                                let x = 0;
+                                x = Math.round((element.vote_average * 5) / 10);
+                                element.vote_average = x;
+                                console.log(element.vote_average);
                             });
                         })
                         .catch(function (error) {
@@ -56,6 +61,10 @@
                             store.foundSeriesArray = response.data.results
                             store.foundSeriesArray.forEach(element => {
                                 element.info = false;
+                                let x = 0;
+                                x = Math.round((element.vote_average * 5) / 10);
+                                element.vote_average = x;
+                                console.log(element.vote_average);
                             });
                         })
                         .catch(function (error) {
