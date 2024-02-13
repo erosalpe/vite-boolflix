@@ -15,8 +15,9 @@
 
 
 <template>
-  
-  <FilmList/>
+  <main>
+      <FilmList/>
+  </main>
   
 
 
@@ -30,7 +31,9 @@
 
 
 <style lang="scss" scoped>
-    
+    main{
+        background-color: rgb(22, 22, 22);
+    }
 
 
 

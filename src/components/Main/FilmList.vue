@@ -21,8 +21,11 @@
 
 <template>
   
-    <div class="d-flex flex-wrap p-5">
-        <FilmCard v-for="(element, index) in store.foundFilmsArray"/>
+    <div class="d-flex flex-wrap p-5" id="FilmListBody">
+        <FilmCard v-for="element,index in store.foundFilmsArray"
+        :key="index"
+        :propsElement="element"
+        />
     </div>
     
 
@@ -40,7 +43,9 @@
 
 <style lang="scss" scoped>
     
-
+    #FilmListBody{
+        gap: 2rem;
+    }
 
 
 

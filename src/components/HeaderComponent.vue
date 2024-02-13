@@ -10,6 +10,7 @@
         },
         methods:{
             getFilm(){
+                store.foundFilmsArray = [];
                 store.filmsUrl='https://api.themoviedb.org/3/search/movie?query='
                 if(store.searchText != ""){
                     const options = {
@@ -24,6 +25,7 @@
                         .request(options)
                         .then(function (response) {
                             console.log(response.data);
+                            store.foundFilmsArray = response.data.results
                         })
                         .catch(function (error) {
                             console.error(error);
