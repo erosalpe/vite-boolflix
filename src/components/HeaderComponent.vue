@@ -11,7 +11,9 @@
         methods:{
             getFilm(){
                 store.foundFilmsArray = [];
+                store.foundSeriesArray = [];
                 store.filmsUrl='https://api.themoviedb.org/3/search/movie?query='
+                store.seriesUrl='https://api.themoviedb.org/3/search/tv?query='
                 if(store.searchText != ""){
                     const options = {
                         method: 'GET',
@@ -31,6 +33,34 @@
                             console.error(error);
                         });
                 }
+
+
+
+
+                if(store.searchText != ""){
+                    const options = {
+                        method: 'GET',
+                        url: store.seriesUrl += `${store.searchText}&include_adult=false&language=it-IT&page=1`,
+                        headers: {
+                            accept: 'application/json',
+                            Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5MTM2N2Q3NjYzY2UzNzUxMjNkYzgxNTI2MTBkYmQ2ZiIsInN1YiI6IjY1Y2IzMDZiODliNTYxMDE4NDY5M2FhMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.P-w1WbxZCsRTB_FDcElctfWPtKQWSug8oADWIYtpHfY'
+                        }
+                    };
+                    axios
+                        .request(options)
+                        .then(function (response) {
+                            console.log(response.data);
+                            store.foundSeriesArray = response.data.results
+                        })
+                        .catch(function (error) {
+                            console.error(error);
+                        });
+                }
+
+
+
+
+
                 store.searchText = "";
             }
         }

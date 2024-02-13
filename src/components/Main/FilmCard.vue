@@ -20,9 +20,7 @@
 
 <template>
   
-    <div id="filmCard"
-    @click="store.info = !store.info"
-    >
+    <div id="filmCard">
         <img :src="'https://image.tmdb.org/t/p/w342'+ propsElement.poster_path" :alt="propsElement.poster_path">
     </div>
 

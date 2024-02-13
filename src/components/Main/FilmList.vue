@@ -20,15 +20,25 @@
 
 
 <template>
-  
-    <div class="d-flex flex-wrap p-5" id="FilmListBody">
-        <FilmCard v-for="element,index in store.foundFilmsArray"
-        :key="index"
-        :propsElement="element"
-        />
+    <div>
+        <h2 class="text-center text-light pt-4">Film</h2>
+        <div class="d-flex flex-wrap p-5" id="FilmListBody">
+            <FilmCard v-for="element,index in store.foundFilmsArray"
+            :key="index"
+            :propsElement="element"
+            />
+        </div>
     </div>
-    
 
+    <div>
+        <h2 class="text-center text-light pt-4">Series</h2>
+        <div class="d-flex flex-wrap p-5" id="FilmListBody">
+            <FilmCard v-for="element,index in store.foundSeriesArray"
+            :key="index"
+            :propsElement="element"
+            />
+        </div>
+    </div>
   
 
 
