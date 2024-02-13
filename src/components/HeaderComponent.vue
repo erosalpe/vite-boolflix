@@ -28,6 +28,9 @@
                         .then(function (response) {
                             console.log(response.data);
                             store.foundFilmsArray = response.data.results
+                            store.foundFilmsArray.forEach(element => {
+                                element.info = false;
+                            });
                         })
                         .catch(function (error) {
                             console.error(error);
@@ -51,6 +54,9 @@
                         .then(function (response) {
                             console.log(response.data);
                             store.foundSeriesArray = response.data.results
+                            store.foundSeriesArray.forEach(element => {
+                                element.info = false;
+                            });
                         })
                         .catch(function (error) {
                             console.error(error);

@@ -26,6 +26,7 @@
             <FilmCard v-for="element,index in store.foundFilmsArray"
             :key="index"
             :propsElement="element"
+            @click="element.info = !element.info"
             />
         </div>
     </div>
@@ -36,6 +37,7 @@
             <FilmCard v-for="element,index in store.foundSeriesArray"
             :key="index"
             :propsElement="element"
+            @click="element.info = !element.info"
             />
         </div>
     </div>
