@@ -20,30 +20,29 @@
 
 
 <template>
-    <div>
-        <h2 class="text-center text-light pt-4">Film</h2>
-        <div class="d-flex flex-wrap p-5" id="FilmListBody">
-            <FilmCard v-for="element,index in store.foundFilmsArray"
-            :key="index"
-            :propsElement="element"
-            @click="element.info = !element.info"
-            />
+    <div id="filmListBg">
+        <div>
+            <h2 class="text-center text-light pt-4">Film</h2>
+            <div class="d-flex flex-wrap p-5" id="FilmListBody">
+                <FilmCard v-for="element,index in store.foundFilmsArray"
+                :key="index"
+                :propsElement="element"
+                @click="element.info = !element.info"
+                />
+            </div>
+        </div>
+    
+        <div>
+            <h2 class="text-center text-light pt-4">Series</h2>
+            <div class="d-flex flex-wrap p-5" id="FilmListBody">
+                <FilmCard v-for="element,index in store.foundSeriesArray"
+                :key="index"
+                :propsElement="element"
+                @click="element.info = !element.info"
+                />
+            </div>
         </div>
     </div>
-
-    <div>
-        <h2 class="text-center text-light pt-4">Series</h2>
-        <div class="d-flex flex-wrap p-5" id="FilmListBody">
-            <FilmCard v-for="element,index in store.foundSeriesArray"
-            :key="index"
-            :propsElement="element"
-            @click="element.info = !element.info"
-            />
-        </div>
-    </div>
-  
-
-
 </template>
 
 
@@ -54,11 +53,14 @@
 
 
 <style lang="scss" scoped>
-    
-    #FilmListBody{
-        gap: 2rem;
+    #filmListBg{
+        background: rgba(255, 255, 255, 0.1);
+        background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(0,0,0,1) 0%, rgba(91,91,91,1) 50%, rgba(0,0,0,1) 100%);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(0px);
+        -webkit-backdrop-filter: blur(0px);
+        #FilmListBody{
+            gap: 2rem;
+        }
     }
-
-
-
 </style>

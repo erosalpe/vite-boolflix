@@ -91,13 +91,87 @@
                             console.error(error);
                         });
                 }
-
-
-
-
-
                 store.searchText = "";
             }
+        },
+        mounted() {
+                store.foundFilmsArray = [];
+                store.foundSeriesArray = [];
+                const optionsStartFilms = {
+                    method: 'GET',
+                    url: 'https://api.themoviedb.org/3/trending/movie/week?language=it-IT',
+                    headers: {
+                        accept: 'application/json',
+                        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5MTM2N2Q3NjYzY2UzNzUxMjNkYzgxNTI2MTBkYmQ2ZiIsInN1YiI6IjY1Y2IzMDZiODliNTYxMDE4NDY5M2FhMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.P-w1WbxZCsRTB_FDcElctfWPtKQWSug8oADWIYtpHfY'
+                    }
+                };
+                axios
+                    .request(optionsStartFilms)
+                    .then(function (response) {
+                        console.log(response.data);
+                        store.foundFilmsArray = response.data.results
+                        store.foundFilmsArray.forEach(element => {
+                            element.info = false;
+
+                            let x = 0;
+                            x = Math.round((element.vote_average * 5) / 10);
+                            element.vote_average = x;
+                            if (element.original_language === "en"){
+                                element.original_language = "gb"
+                            } else if (element.original_language === "ko"){
+                                element.original_language = "kr"
+                            } else if (element.original_language === "ja"){
+                                element.original_language = "jp"
+                            } else if (element.original_language === "zh"){
+                                element.original_language = "cn"
+                            }   else if (element.original_language === "hi"){
+                                element.original_language = "in"
+                            }
+                        });
+                    })
+                    .catch(function (error) {
+                        console.error(error);
+                    });
+
+
+
+
+            
+                const optionsStartSeries = {
+                    method: 'GET',
+                    url: 'https://api.themoviedb.org/3/trending/tv/week?language=it-IT',
+                    headers: {
+                        accept: 'application/json',
+                        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5MTM2N2Q3NjYzY2UzNzUxMjNkYzgxNTI2MTBkYmQ2ZiIsInN1YiI6IjY1Y2IzMDZiODliNTYxMDE4NDY5M2FhMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.P-w1WbxZCsRTB_FDcElctfWPtKQWSug8oADWIYtpHfY'
+                    }
+                };
+                axios
+                    .request(optionsStartSeries)
+                    .then(function (response) {
+                        console.log(response.data);
+                        store.foundSeriesArray = response.data.results
+                        store.foundSeriesArray.forEach(element => {
+                            element.info = false;
+                            let x = 0;
+                            x = Math.round((element.vote_average * 5) / 10);
+                            element.vote_average = x;
+                            if (element.original_language === "en"){
+                                element.original_language = "gb"
+                            } else if (element.original_language === "ko"){
+                                element.original_language = "kr"
+                            } else if (element.original_language === "ja"){
+                                element.original_language = "jp"
+                            }  else if (element.original_language === "zh"){
+                                element.original_language = "cn"
+                            }  else if (element.original_language === "hi"){
+                                element.original_language = "in"
+                            }
+                        });
+                    })
+                    .catch(function (error) {
+                        console.error(error);
+                    });
+            store.searchText = "";
         }
     }
 </script>
@@ -106,7 +180,7 @@
 <template>
     <header class="d-flex justify-content-between p-3 align-items-center">
         <div>
-            <h1>Logo</h1>
+            <h1>BoolFlix</h1>
         </div>
         <div>
             <div>
@@ -132,9 +206,11 @@
 <style lang="scss" scoped>
     header{
         background-color: black;
+        height: 10vh;
         div{
             h1{
-                color: white;
+                color: red;
+                text-shadow: 4px 1px 3px rgba(255, 255, 255, 1);
             }
             div{
                 position: relative;
@@ -144,6 +220,14 @@
                 }
                 input{
                     padding-left: 30px;
+                    border: none;
+                    border-radius: 10px;
+                    -webkit-box-shadow: 0px 0px 10px 1px #FFFFFF; 
+                    box-shadow: 0px 0px 10px 1px #FFFFFF;
+                }
+                input:hover{
+                    -webkit-box-shadow: 0px 0px 30px 1px #FFFFFF; 
+                    box-shadow: 0px 0px 30px 1px #FFFFFF;
                 }
                 button{
                     position: absolute;
