@@ -22,7 +22,7 @@
 <template>
     <div id="filmListBg">
         <div>
-            <h2 class="text-center text-light pt-4">Film</h2>
+            <h2 class="ps-5 text-light pt-4 fs-1">Film</h2>
             <div class="d-flex flex-wrap p-5" id="FilmListBody">
                 <FilmCard v-for="element,index in store.foundFilmsArray"
                 :key="index"
@@ -33,7 +33,7 @@
         </div>
     
         <div>
-            <h2 class="text-center text-light pt-4">Series</h2>
+            <h2 class="ps-5  text-light pt-4 fs-1">Series</h2>
             <div class="d-flex flex-wrap p-5" id="FilmListBody">
                 <FilmCard v-for="element,index in store.foundSeriesArray"
                 :key="index"

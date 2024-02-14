@@ -78,7 +78,8 @@
 
 <style lang="scss" scoped>
     #filmCard{
-        background-color: black;
+        background: rgb(68,68,68);
+        background: radial-gradient(circle, rgba(68,68,68,1) 0%, rgba(0,0,0,1) 100%);
         --gap: 2rem;
         --columns: 5;
         flex-basis: calc((100% / var(--columns)) - var(--gap) + (var(--gap) / var(--columns)));

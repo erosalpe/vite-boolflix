@@ -10,11 +10,11 @@
         },
         methods:{
             getFilm(){
-                store.foundFilmsArray = [];
-                store.foundSeriesArray = [];
-                store.filmsUrl='https://api.themoviedb.org/3/search/movie?query='
-                store.seriesUrl='https://api.themoviedb.org/3/search/tv?query='
-                if(store.searchText != ""){
+                if(store.searchText && store.searchText.trim()){
+                    store.filmsUrl='https://api.themoviedb.org/3/search/movie?query='
+                    store.seriesUrl='https://api.themoviedb.org/3/search/tv?query='
+                    store.foundFilmsArray = [];
+                    store.foundSeriesArray = [];
                     const options = {
                         method: 'GET',
                         url: store.filmsUrl += `${store.searchText}&include_adult=false&language=it-IT&page=1`,
@@ -55,7 +55,7 @@
 
 
 
-                if(store.searchText != ""){
+                if(store.searchText && store.searchText.trim()){
                     const options = {
                         method: 'GET',
                         url: store.seriesUrl += `${store.searchText}&include_adult=false&language=it-IT&page=1`,
@@ -205,8 +205,10 @@
 
 <style lang="scss" scoped>
     header{
+        position: fixed;
+        z-index: 1;
+        width: 100%;
         background-color: rgb(0, 0, 0);
-        height: 10vh;
         div{
             h1{
                 color: red;
