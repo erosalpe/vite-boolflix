@@ -34,7 +34,17 @@
                                 let x = 0;
                                 x = Math.round((element.vote_average * 5) / 10);
                                 element.vote_average = x;
-                                console.log(element.vote_average);
+                                if (element.original_language === "en"){
+                                    element.original_language = "gb"
+                                } else if (element.original_language === "ko"){
+                                    element.original_language = "kr"
+                                } else if (element.original_language === "ja"){
+                                    element.original_language = "jp"
+                                } else if (element.original_language === "zh"){
+                                    element.original_language = "cn"
+                                }   else if (element.original_language === "hi"){
+                                    element.original_language = "in"
+                                }
                             });
                         })
                         .catch(function (error) {
@@ -64,7 +74,17 @@
                                 let x = 0;
                                 x = Math.round((element.vote_average * 5) / 10);
                                 element.vote_average = x;
-                                console.log(element.vote_average);
+                                if (element.original_language === "en"){
+                                    element.original_language = "gb"
+                                } else if (element.original_language === "ko"){
+                                    element.original_language = "kr"
+                                } else if (element.original_language === "ja"){
+                                    element.original_language = "jp"
+                                }  else if (element.original_language === "zh"){
+                                    element.original_language = "cn"
+                                }  else if (element.original_language === "hi"){
+                                    element.original_language = "in"
+                                }
                             });
                         })
                         .catch(function (error) {

@@ -7,7 +7,3 @@ export const store = reactive ({
     foundFilmsArray: [],
     foundSeriesArray: [],
 });
-
-//'https://api.themoviedb.org/3/search/movie?query=ritorno&include_adult=false&language=it-IT&page=1'
-
-//https://api.themoviedb.org/3/search/tv?query=big&include_adult=false&language=it-IT&page=1

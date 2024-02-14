@@ -36,6 +36,15 @@
                 {{ propsElement.original_title }}
             </span>
             <span>
+                <span class="fw-bold">
+                    Lingua originale:
+                </span> 
+                <img class="languageFlag"
+                    :src="'https://flagcdn.com/16x12/'+ propsElement.original_language +'.png'"
+                    :alt="propsElement.original_language"
+                >
+            </span>
+            <span>
                 <span class="text-light fw-bold">
                     Voto:
                 </span>
@@ -80,8 +89,14 @@
         #mediaInfo{
             width: 100%;
             height: 503.69px;
+            .languageFlag{
+                width: 15px;
+                height: 10px;
+            }
         }
     }
+
+    
 
 
 
