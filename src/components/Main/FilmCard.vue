@@ -95,6 +95,38 @@
             }
         }
     }
+    #filmCard:hover{
+        -webkit-box-shadow: 0px 0px 20px 2px #ffffff85; 
+        box-shadow: 0px 0px 20px 2px #ffffff85;
+    }
+
+    
+    #overview {
+    --sb-track-color: #ffffff00;
+    --sb-thumb-color: #969696;
+    --sb-size: 2px;
+    }
+
+    #overview::-webkit-scrollbar {
+        width: var(--sb-size)
+    }
+
+    #overview::-webkit-scrollbar-track {
+        background: var(--sb-track-color);
+        border-radius: 3px;
+    }
+
+    #overview::-webkit-scrollbar-thumb {
+        background: var(--sb-thumb-color);
+        border-radius: 3px;
+    }
+
+    @supports not selector(::-webkit-scrollbar) {
+        #overview {
+            scrollbar-color: var(--sb-thumb-color)
+            var(--sb-track-color);
+        }
+    }
 
     
 

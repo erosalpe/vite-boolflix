@@ -205,7 +205,7 @@
 
 <style lang="scss" scoped>
     header{
-        background-color: black;
+        background-color: rgb(0, 0, 0);
         height: 10vh;
         div{
             h1{
