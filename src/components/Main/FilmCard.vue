@@ -10,6 +10,12 @@
                 store
             }
         },
+        methods:{
+            wikName(name){
+                const wikName = name.replace(/ /g, "_");
+                return wikName
+            }
+        }
     }
 </script>
 
@@ -49,7 +55,7 @@
                     Attori nel film:
                 </span> 
                 <br>
-                <a href="" v-for="index in 4" class="link-underline link-underline-opacity-0">{{propsElement.cast[index].name}} &nbsp; </a>
+                <a :href="'https://it.wikipedia.org/wiki/'+ wikName(propsElement.cast[index].name)" v-for="index in 4" class="link-underline link-underline-opacity-0">{{propsElement.cast[index].name}} &nbsp; </a>
             </span>
             <span>
                 <span class="text-light fw-bold">

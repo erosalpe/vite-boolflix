@@ -6,5 +6,4 @@ export const store = reactive ({
     seriesUrl: 'https://api.themoviedb.org/3/search/tv?query=',
     foundFilmsArray: [],
     foundSeriesArray: [],
-    actorsArray: [],
 });
