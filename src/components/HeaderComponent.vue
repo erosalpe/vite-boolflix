@@ -45,6 +45,22 @@
                                 }   else if (element.original_language === "hi"){
                                     element.original_language = "in"
                                 }
+
+
+                                const castList = {
+                                    method: 'GET',
+                                    url: `https://api.themoviedb.org/3/movie/${element.id}/credits?language=it-IT`,
+                                    headers: {
+                                        accept: 'application/json',
+                                        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5MTM2N2Q3NjYzY2UzNzUxMjNkYzgxNTI2MTBkYmQ2ZiIsInN1YiI6IjY1Y2IzMDZiODliNTYxMDE4NDY5M2FhMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.P-w1WbxZCsRTB_FDcElctfWPtKQWSug8oADWIYtpHfY'
+                                    }
+                                };
+                                axios
+                                .request(castList)
+                                .then(function (response) {
+                                console.log(response.data);
+                                element.cast = response.data.cast
+                                });
                             });
                         })
                         .catch(function (error) {
@@ -85,12 +101,28 @@
                                 }  else if (element.original_language === "hi"){
                                     element.original_language = "in"
                                 }
+
+                                const castListSeries = {
+                                    method: 'GET',
+                                    url: `https://api.themoviedb.org/3/tv/${element.id}/aggregate_credits?language=it-IT`,
+                                    headers: {
+                                        accept: 'application/json',
+                                        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5MTM2N2Q3NjYzY2UzNzUxMjNkYzgxNTI2MTBkYmQ2ZiIsInN1YiI6IjY1Y2IzMDZiODliNTYxMDE4NDY5M2FhMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.P-w1WbxZCsRTB_FDcElctfWPtKQWSug8oADWIYtpHfY'
+                                    }
+                                };
+                                axios
+                                .request(castListSeries)
+                                .then(function (response) {
+                                console.log(response.data);
+                                element.cast = response.data.cast
+                                });
                             });
                         })
                         .catch(function (error) {
                             console.error(error);
                         });
                 }
+
                 store.searchText = "";
             }
         },
@@ -127,6 +159,22 @@
                             }   else if (element.original_language === "hi"){
                                 element.original_language = "in"
                             }
+
+                            const castList = {
+                                method: 'GET',
+                                url: `https://api.themoviedb.org/3/movie/${element.id}/credits?language=it-IT`,
+                                headers: {
+                                    accept: 'application/json',
+                                    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5MTM2N2Q3NjYzY2UzNzUxMjNkYzgxNTI2MTBkYmQ2ZiIsInN1YiI6IjY1Y2IzMDZiODliNTYxMDE4NDY5M2FhMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.P-w1WbxZCsRTB_FDcElctfWPtKQWSug8oADWIYtpHfY'
+                                }
+                            };
+                            axios
+                            .request(castList)
+                            .then(function (response) {
+                            console.log(response.data);
+                            element.cast = response.data.cast
+                            });
+
                         });
                     })
                     .catch(function (error) {
@@ -166,6 +214,22 @@
                             }  else if (element.original_language === "hi"){
                                 element.original_language = "in"
                             }
+
+                            const castListSeries = {
+                                method: 'GET',
+                                url: `https://api.themoviedb.org/3/tv/${element.id}/aggregate_credits?language=it-IT`,
+                                headers: {
+                                    accept: 'application/json',
+                                    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5MTM2N2Q3NjYzY2UzNzUxMjNkYzgxNTI2MTBkYmQ2ZiIsInN1YiI6IjY1Y2IzMDZiODliNTYxMDE4NDY5M2FhMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.P-w1WbxZCsRTB_FDcElctfWPtKQWSug8oADWIYtpHfY'
+                                }
+                            };
+                            axios
+                            .request(castListSeries)
+                            .then(function (response) {
+                            console.log(response.data);
+                            element.cast = response.data.cast
+                            });
+
                         });
                     })
                     .catch(function (error) {

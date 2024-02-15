@@ -20,8 +20,8 @@
 
 <template>
   
-    <div id="filmCard">
-        <img :src="'https://image.tmdb.org/t/p/w342'+ propsElement.poster_path" :alt="propsElement.poster_path" v-if="propsElement.info === false">
+    <div id="filmCard" class="rounded">
+        <img :src="'https://image.tmdb.org/t/p/w342'+ propsElement.poster_path" :alt="propsElement.poster_path" v-if="propsElement.info === false" class="rounded">
         <div id="mediaInfo" class="d-flex flex-column text-light gap-4 p-3" v-else>
             <span>
                 <span class="fw-bold">
@@ -43,6 +43,13 @@
                     :src="'https://flagcdn.com/16x12/'+ propsElement.original_language +'.png'"
                     :alt="propsElement.original_language"
                 >
+            </span>
+            <span>
+                <span class="text-light fw-bold">
+                    Attori nel film:
+                </span> 
+                <br>
+                <a href="" v-for="index in 4" class="link-underline link-underline-opacity-0">{{propsElement.cast[index].name}} &nbsp; </a>
             </span>
             <span>
                 <span class="text-light fw-bold">
